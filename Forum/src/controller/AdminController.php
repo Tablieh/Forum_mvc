@@ -2,14 +2,14 @@
 namespace App\Controller;
 
 use App\Core\AbstractController as AC;
-use App\Model\Manager\ForumSubjetManager;
+use App\Model\Manager\ForumsubjetManager;
 use App\Model\Manager\MessagesManager;
 use App\Model\Manager\VisiteurManager;
 
 class AdminController extends AC
 {
     public function __construct(){
-        $this->managerS = new ForumSubjetManager();
+        $this->managerS = new ForumsubjetManager();
         $this->managerM = new MessagesManager();
         $this->managerU = new VisiteurManager();
     }

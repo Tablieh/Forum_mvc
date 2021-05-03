@@ -8,10 +8,10 @@
 
 
 
-    class ForumSubjetController extends AC
+    class ForumsubjetController extends AC
     {
         public function __construct(){
-            $this->managerS = new ForumSubjetManager();
+            $this->managerS = new ForumsubjetManager();
             $this->managerM = new MessagesManager();
         }
 

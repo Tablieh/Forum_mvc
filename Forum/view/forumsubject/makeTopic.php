@@ -6,7 +6,7 @@
     make a new subject
 </h1>
 
-<form  id="connexion" action="?ctrl=forum&action=addTopic" method="post">
+<form  id="connexion" action="?ctrl=Forumsubjet&action=addTopic" method="post">
     <p>
         <label for="titre">Titre de sujet : </label><br>
         <input  class="uk-input uk-form-width-large"type="texte" name="titre" id="titre" required>

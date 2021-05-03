@@ -13,14 +13,14 @@ class ForumsubjetManager extends AM implements ManagerInterface
 
     public function getAll(){
         return $this->getResults(
-            "App\Model\Entity\ForumSubjet",
+            "App\Model\Entity\Forumsubjet",
             "SELECT * FROM forumsubjet"
         );
     }
 
     public function getOneById($id){
         return $this->getOneOrNullResult(
-            "App\Model\Entity\ForumSubjet",
+            "App\Model\Entity\Forumsubjet",
             "SELECT * FROM forumsubjet WHERE id = :num", 
             [
                 "num" => $id
@@ -28,10 +28,6 @@ class ForumsubjetManager extends AM implements ManagerInterface
         );
     }
 
-
-
-
-    
     public function getMessagesByTopic($id){
         return $this->getResults(
             "App\Model\Entity\Messages",
@@ -78,19 +74,6 @@ class ForumsubjetManager extends AM implements ManagerInterface
             [
                 "statut" => $statut,
                 "id" => $id
-            ]
-        );
-        return $this->getLastInsertId();
-    }
-
-    public function insertMessage($names, $descr, $price, $catid){
-        $this->executeQuery( 
-            "INSERT INTO Messages (names, description, price, category_id) VALUES (:names, :descr, :price, :catid)",
-            [
-                "names"  => $names,
-                "descr" => $descr,
-                "price" => $price,
-                "catid" => $catid
             ]
         );
         return $this->getLastInsertId();

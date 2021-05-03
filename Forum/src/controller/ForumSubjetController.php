@@ -3,7 +3,7 @@
 
     use App\Core\Session;
     use App\Core\AbstractController as AC;
-    use App\Model\Manager\ForumSubjetManager;
+    use App\Model\Manager\ForumsubjetManager;
     use App\Model\Manager\MessagesManager;
 
 
@@ -21,7 +21,7 @@
 
             //Si utilisateur est connecté, il y a accés au forum, sinon on affiche une page de connextion
             if(Session::get("user")){
-            return $this->render("FroumSubjet/topics.php", [
+            return $this->render("Froumsubjet/subject.php", [
                 "sujets" => $sujets,
                 "title"    => "Liste des sujets"
             ]);
@@ -40,14 +40,14 @@
                 $sujet = $this->managerS->getOneById($id);
                 $premierMessage = $this->managerS->getFirstMessageByTopic($id);
 
-                return $this->render("FroumSubjet/topicAndMessages.php", [
+                return $this->render("Froumsubjet/topicAndMessages.php", [
                     "messages" => $messages,
                     "sujet" => $sujet,
                     "premierMessage" => $premierMessage,
                     "title"   => $sujet
                 ]);
             }  
-            else $this->redirectToRoute("FroumSubjet");
+            else $this->redirectToRoute("Froumsubjet");
         }
 
         
@@ -59,13 +59,13 @@
                 }  
             }
 
-            return $this->redirectToRoute("FroumSubjet");
+            return $this->redirectToRoute("Froumsubjet");
         }
 
 
         public function newTopic()
         {
-            return $this->render("FroumSubjet/createTopic.php");
+            return $this->render("Froumsubjet/createTopic.php");
         }
 
         
@@ -90,7 +90,7 @@
             }
             else Session::addFlash('error', "Petit malin, mais ça marche pas !! Nananèèèèreuh !");
             
-            return $this->redirectToRoute("FroumSubjet");
+            return $this->redirectToRoute("Froumsubjet");
         }
 
         public function delTopic($id){

@@ -79,12 +79,12 @@ class ForumsubjetManager extends AM implements ManagerInterface
         return $this->getLastInsertId();
     }
 
-    public function insertTopic($titre, $id_visiteur){
+    public function insertTopic($titre, $visiteur_id){
         $this->executeQuery( 
-            "INSERT INTO forumsubjet (titre, statut, id_visiteur) VALUES (:titre, 1, :id_visiteur)",
+            "INSERT INTO forumsubjet (titre, statut, visiteur_id) VALUES (:titre, 1, :visiteur_id)",
             [
                 "titre"  => $titre,
-                "id_visiteur" => $id_visiteur
+                "visiteur_id" => $visiteur_id
 
             ]
         );

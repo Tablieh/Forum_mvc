@@ -87,14 +87,14 @@
         public function addTopic(){
             if(isset($_POST["submit"])){
                 
-                $id_visiteur =  Session::get("user")->getId();
+                $visiteur_id =  Session::get("user")->getId();
                 $titre  = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);
                 $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_STRING);
                 
                 if($titre && $texte){
-                $id_forum = $this->managerS->insertTopic($titre, $id_visiteur);
-                $id_message = $this->managerM->insertMessage($texte, $id_visiteur, $id_forum); 
-                    if($id_forum && $id_message){
+                $forumsubjet_id = $this->managerS->insertTopic($titre, $visiteur_id);
+                $id_message = $this->managerM->insertMessage($texte, $visiteur_id, $forumsubjet_id); 
+                    if($forumsubjet_id && $id_message){
                         Session::addFlash('success', "Le sujet est ajouté");
                     }
                     else{

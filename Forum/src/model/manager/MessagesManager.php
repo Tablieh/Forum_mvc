@@ -27,13 +27,13 @@ class MessagesManager extends AM implements ManagerInterface
         );
     }
 
-    public function insertMessage($texte, $id_visiteur, $id_forum){
+    public function insertMessage($texte, $visiteur_id, $forumsubjet_id){
         $this->executeQuery( 
-            "INSERT INTO messages (texte, id_visiteur, id_forum) VALUES (:texte, :id_visiteur, :id_forum)",
+            "INSERT INTO messages (texte, visiteur_id, forumsubjet_id) VALUES (:texte, :visiteur_id, :forumsubjet_id)",
             [
                 "texte"  => $texte,
-                "id_visiteur" => $id_visiteur,
-                "id_forum" => $id_forum
+                "visiteur_id" => $visiteur_id,
+                "forumsubjet_id" => $forumsubjet_id
             ]
         );
         return $this->getLastInsertId();

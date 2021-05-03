@@ -4,39 +4,19 @@
     use App\Core\AbstractEntity as AE;
     use App\Core\EntityInterface;
 
-    class ForumSubjet extends AE implements EntityInterface
+    class Forumsubjet extends AE implements EntityInterface
     {
-        private $id_forum;
+        private $id;
         private $titre;
         private $DateDeCree;
         private $statut;
-        private $utilisateur;
+        private $visiteur;
 
         public function __construct($data){
             parent::hydrate($data, $this);
         }
 
         
-
-        /**
-         * Get the value of id_forum
-         */ 
-        public function getId_forum()
-        {
-                return $this->id_forum;
-        }
-
-        /**
-         * Set the value of id_forum
-         *
-         * @return  self
-         */ 
-        public function setId_forum($id_forum)
-        {
-                $this->id_forum = $id_forum;
-
-                return $this;
-        }
 
         /**
          * Get the value of titre
@@ -119,5 +99,45 @@
         }
         public function __toString(){
                 return $this->titre;
+        }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of visiteur
+         */ 
+        public function getVisiteur()
+        {
+                return $this->visiteur;
+        }
+
+        /**
+         * Set the value of visiteur
+         *
+         * @return  self
+         */ 
+        public function setVisiteur($visiteur)
+        {
+                $this->visiteur = $visiteur;
+
+                return $this;
         }
     }

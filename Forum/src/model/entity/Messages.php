@@ -6,35 +6,17 @@
 
     class Messages extends AE implements EntityInterface
     {
-        private $id_message;
+        private $id;
         private $texte;
         private $DateDeCree;
-        private $utilisateur;
+        private $visiteur;
         private $sujet;
 
         public function __construct($data){
             parent::hydrate($data, $this);
         }
 
-        /**
-         * Get the value of id_message
-         */ 
-        public function getId_message()
-        {
-                return $this->id_message;
-        }
 
-        /**
-         * Set the value of id_message
-         *
-         * @return  self
-         */ 
-        public function setId_message($id_message)
-        {
-                $this->id_message = $id_message;
-
-                return $this;
-        }
 
         /**
          * Get the value of texte
@@ -76,28 +58,6 @@
                 return $this;
         }
 
-      
-
-        /**
-         * Get the value of utilisateur
-         */ 
-        public function getUtilisateur()
-        {
-                return $this->utilisateur;
-        }
-
-        /**
-         * Set the value of utilisateur
-         *
-         * @return  self
-         */ 
-        public function setUtilisateur($utilisateur)
-        {
-                $this->utilisateur = $utilisateur;
-
-                return $this;
-        }
-
         /**
          * Get the value of sujet
          */ 
@@ -120,5 +80,45 @@
         public function __toString()
         {
             return $this->getDateDeCree('d/m/Y H:i:s');
+        }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of visiteur
+         */ 
+        public function getVisiteur()
+        {
+                return $this->visiteur;
+        }
+
+        /**
+         * Set the value of visiteur
+         *
+         * @return  self
+         */ 
+        public function setVisiteur($visiteur)
+        {
+                $this->visiteur = $visiteur;
+
+                return $this;
         }
     }

@@ -18,13 +18,11 @@
         public function index()
         {
             $sujets = $this->managerS->getAll();
-            $topicsDetails = $this->managerS->getAllTopicsWithDetails();
 
             //Si utilisateur est connecté, il y a accés au forum, sinon on affiche une page de connextion
             if(Session::get("user")){
             return $this->render("FroumSubjet/topics.php", [
                 "sujets" => $sujets,
-                "topicsDetails" => $topicsDetails,
                 "title"    => "Liste des sujets"
             ]);
             }  

@@ -4,7 +4,7 @@ namespace App\Model\Manager;
 use App\Core\AbstractManager as AM;
 use App\Core\ManagerInterface;
 
-class ForumSubjetManager extends AM implements ManagerInterface
+class ForumsubjetManager extends AM implements ManagerInterface
 {
     public function __construct(){
         parent::connect();

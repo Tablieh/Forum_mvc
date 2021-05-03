@@ -5,7 +5,7 @@ namespace App\Model\Entity;
 
     class Visiteur extends AbstractEntity
     {
-        private $id_visiteur;
+        private $id;
         private $pesudo;
         private $email;
         private $MoteDePass;
@@ -17,25 +17,6 @@ namespace App\Model\Entity;
             parent::hydrate($data, $this);
         }
 
-        /**
-         * Get the value of id_visiteur
-         */ 
-        public function getId_visiteur()
-        {
-                return $this->id_visiteur;
-        }
-
-        /**
-         * Set the value of id_visiteur
-         *
-         * @return  self
-         */ 
-        public function setId_visiteur($id_visiteur)
-        {
-                $this->id_visiteur = $id_visiteur;
-
-                return $this;
-        }
 
         /**
          * Get the value of pesudo
@@ -163,5 +144,25 @@ namespace App\Model\Entity;
 
         public function hasRole($role){
             return $this->role == $role ? true : false;
+        }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
         }
     }

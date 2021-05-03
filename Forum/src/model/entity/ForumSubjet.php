@@ -1,13 +1,16 @@
-<?php  
-namespace App\Model\Entity;
-   use App\Core\AbstractEntity;
+<?php
+    namespace App\Model\Entity;
+ 
+    use App\Core\AbstractEntity as AE;
+    use App\Core\EntityInterface;
 
-
-    class ForumSubjet extends AbstractEntity
+    class ForumSubjet extends AE implements EntityInterface
     {
         private $id_forum;
         private $titre;
         private $DateDeCree;
+        private $statut;
+        private $utilisateur;
 
         public function __construct($data){
             parent::hydrate($data, $this);
@@ -73,5 +76,48 @@ namespace App\Model\Entity;
             $this->DateDeCree = new \DateTime($DateDeCree);
 
                 return $this;
+        }
+
+        /**
+         * Get the value of statut
+         */ 
+        public function getStatut()
+        {
+                return $this->statut;
+        }
+
+        /**
+         * Set the value of statut
+         *
+         * @return  self
+         */ 
+        public function setStatut($statut)
+        {
+                $this->statut = $statut;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of utilisateur
+         */ 
+        public function getUtilisateur()
+        {
+                return $this->utilisateur;
+        }
+
+        /**
+         * Set the value of utilisateur
+         *
+         * @return  self
+         */ 
+        public function setUtilisateur($utilisateur)
+        {
+                $this->utilisateur = $utilisateur;
+
+                return $this;
+        }
+        public function __toString(){
+                return $this->titre;
         }
     }

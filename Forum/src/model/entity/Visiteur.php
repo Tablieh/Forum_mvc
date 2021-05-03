@@ -11,6 +11,7 @@ namespace App\Model\Entity;
         private $MoteDePass;
         private $DateDeVisite;
         private $role;
+        private $TBan;
 
         public function __construct($data){
             parent::hydrate($data, $this);
@@ -134,5 +135,33 @@ namespace App\Model\Entity;
                 $this->role = $role;
 
                 return $this;
+        }
+        /**
+         * Get the value of TBan
+         */ 
+        public function getTBan($format)
+        {
+                return $this->TBan->format($format);
+        }
+
+        /**
+         * Set the value of TBan
+         *
+         * @return  self
+         */ 
+        public function setTBan($TBan)
+        {
+                $this->TBan = new \DateTime($TBan);
+
+                return $this;
+        }
+
+        public function __toString()
+        {
+            return $this->pseudo;
+        }
+
+        public function hasRole($role){
+            return $this->role == $role ? true : false;
         }
     }

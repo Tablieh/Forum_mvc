@@ -1,99 +1,112 @@
 <?php
-namespace App\Controller;
+    namespace App\Controller;
 
-use App\Core\AbstractController;
-use App\Core\Session;
-use App\Model\Manager\ForumSubjetManager;
+    use App\Core\Session;
+    use App\Core\AbstractController as AC;
+    use App\Model\Manager\ForumSubjetManager;
+    use App\Model\Manager\MessagesManager;
 
-    class ForumSubjetController extends AbstractController
-    {   
+
+
+    class ForumSubjetController extends AC
+    {
         public function __construct(){
-        $this->manager = new ForumSubjetManager();
-    }
-    
-    public function index()
-    {
-        $ForumSubjet = $this->manager->findAll();
+            $this->managerS = new ForumSubjetManager();
+            $this->managerM = new MessagesManager();
+        }
 
-        return $this->render("ForumSubjet/home.php", [
-            "forumSubjet" => $ForumSubjet,
-            "title"    => "Liste des ForumSubjet"
-        ]);
-    }
+        public function index()
+        {
+            $sujets = $this->managerS->getAll();
+            $topicsDetails = $this->managerS->getAllTopicsWithDetails();
 
-    public function voirForumSubjet($id)
-    {
-        if($id){
-            
-            $ForumSubjet = $this->manager->findOneById($id);
-            
-           
+            //Si utilisateur est connecté, il y a accés au forum, sinon on affiche une page de connextion
+            if(Session::get("user")){
+            return $this->render("FroumSubjet/topics.php", [
+                "sujets" => $sujets,
+                "topicsDetails" => $topicsDetails,
+                "title"    => "Liste des sujets"
+            ]);
+            }  
+            else return $this->render("Visiteur/login.php", [
+                "title"    => "Connextion"
+            ]);
+        }
 
-            return $this->render("ForumSubjet/voir.php", [
-                "forumSubjet" => $ForumSubjet,
-                "title"   => $ForumSubjet,
+
+        public function showTopic($id)
+        {
+            if($id){
+                
+                $messages = $this->managerS->getAnswersByTopic($id);
+                $sujet = $this->managerS->getOneById($id);
+                $premierMessage = $this->managerS->getFirstMessageByTopic($id);
+
+                return $this->render("FroumSubjet/topicAndMessages.php", [
+                    "messages" => $messages,
+                    "sujet" => $sujet,
+                    "premierMessage" => $premierMessage,
+                    "title"   => $sujet
+                ]);
+            }  
+            else $this->redirectToRoute("FroumSubjet");
+        }
 
         
-            ]);
-        }  
-        else $this->redirectToRoute("ForumSubjet", "index");
-    }
-    
-    public function addsujetAndMessage()
-    {
-        if(isset($_post["submit"])){
-            
-            $titre = filter_input(INPUT_POST,"titre",FILTER_SANITIZE_STRING);
-            $texte = filter_input(INPUT_POST,"text",FILTER_SANITIZE_STRING);
-           if($titre && $texte){
-               if($id_forum=$this->ForumSubjectManager->insertSujet($titre)){
-
-                   if($this->MessagesManager->insertMessage($texte,$id_forum)){
-                       Session::addFlash('succes',"message ajoute");
-                   }
-               }
-               else{
-                Session::addFlash('error',"error contact l'admin");
-               }
-
-           }
-           else Session::addFlash('error',"tout le champs doit etre ramplis");
-        }
-        else Session::addFlash('error',"petit malain mais ca marche pas !");
-        return $this->redirectToRoute("ForumSubjet", "index");
-    }
-    public function addMessageAsSupjet()
-    {
-        if(isset($_post["submit"])){
-            $texte = filter_input(INPUT_POST,"text",FILTER_SANITIZE_STRING);
-            $id_forum = $_GET['id'];
-            if($texte){
-                if($this->MessagesManager->insertMessage($texte,$id_forum)){
-                    Session::addFlash('succes',"message ajoute");
-                }
-            
-            else{
-                Session::addFlash('error',"error contact l'admin");
+        public function lockUnlockTopict($id)
+        {
+            if($id){
+                if(Session::get("user") && Session::get("user")->hasRole("ROLE_ADMIN")){ 
+                    $this->managerS->changeStatus($id);  
+                }  
             }
 
+            return $this->redirectToRoute("FroumSubjet");
         }
-        else  Session::addFlash('error',"tout le champs doit etre ramplis");
-     }
-     return $this->redirectToRoute("ForumSubjet", "voirSujet",["id"=>$id_forum]);
- }
- public function available(){
-     $id = $_GET['id'];
-     $sujet = $this->ForumSubjetManager->getOneById($id);
-     var_dump($sujet);
-    if($sujet->getEtat() == 0){
-        $this->ForumSubjetManager->SujetVerrouiller($id,1);
-         Session::addFlash('error',"Sujet verrouiller !");
+
+
+        public function newTopic()
+        {
+            return $this->render("FroumSubjet/createTopic.php");
+        }
+
+        
+        public function addTopic(){
+            if(isset($_POST["submit"])){
+                
+                $id_visiteur =  Session::get("user")->getId();
+                $titre  = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_STRING);
+                $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_STRING);
+                
+                if($titre && $texte){
+                $id_forum = $this->managerS->insertTopic($titre, $id_visiteur);
+                $id_message = $this->managerM->insertMessage($texte, $id_visiteur, $id_forum); 
+                    if($id_forum && $id_message){
+                        Session::addFlash('success', "Le sujet est ajouté");
+                    }
+                    else{
+                        Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
+                    }
+                }
+                else Session::addFlash('error', "Tous les champs doivent être remplis et respecter leur format...");
+            }
+            else Session::addFlash('error', "Petit malin, mais ça marche pas !! Nananèèèèreuh !");
+            
+            return $this->redirectToRoute("FroumSubjet");
+        }
+
+        public function delTopic($id){
+            if($id){
+
+                if($this->managerM->deleteMessages($id) && $this->managerS->deleteTopic($id)){
+                    Session::addFlash('success', "Le sujet est suprimé");
+                }
+                else{
+                    Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
+                }
+            }
+            else Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
+            
+            return $this->redirectToRoute("FroumSubjet");
+        }
     }
-    else{
-        $this->ForumSubjetManager->SujetVerrouiller($id,0);
-         Session::addFlash('error',"Sujet deverrouiller !");
-    }
-    return $this->redirectToRoute("ForumSubjet", "voirSujet",["id"=>$id]);
- }
-    
-}

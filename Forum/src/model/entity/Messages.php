@@ -1,14 +1,16 @@
-<?php  
-namespace App\Model\Entity;
-   use App\Core\AbstractEntity;
+<?php
+    namespace App\Model\Entity;
+    
+    use App\Core\AbstractEntity as AE;
+    use App\Core\EntityInterface;
 
-
-    class ForumSubjet extends AbstractEntity
+    class Messages extends AE implements EntityInterface
     {
         private $id_message;
         private $texte;
         private $DateDeCree;
-        private $images;
+        private $utilisateur;
+        private $sujet;
 
         public function __construct($data){
             parent::hydrate($data, $this);
@@ -74,23 +76,49 @@ namespace App\Model\Entity;
                 return $this;
         }
 
+      
+
         /**
-         * Get the value of images
+         * Get the value of utilisateur
          */ 
-        public function getImages()
+        public function getUtilisateur()
         {
-                return $this->images;
+                return $this->utilisateur;
         }
 
         /**
-         * Set the value of images
+         * Set the value of utilisateur
          *
          * @return  self
          */ 
-        public function setImages($images)
+        public function setUtilisateur($utilisateur)
         {
-                $this->images = $images;
+                $this->utilisateur = $utilisateur;
 
                 return $this;
+        }
+
+        /**
+         * Get the value of sujet
+         */ 
+        public function getSujet()
+        {
+                return $this->sujet;
+        }
+
+        /**
+         * Set the value of sujet
+         *
+         * @return  self
+         */ 
+        public function setSujet($sujet)
+        {
+                $this->sujet = $sujet;
+
+                return $this;
+        }
+        public function __toString()
+        {
+            return $this->getDateDeCree('d/m/Y H:i:s');
         }
     }

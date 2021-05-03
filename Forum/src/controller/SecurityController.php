@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
                             Session::setVisiteur($Visiteur);
                             Session::addFlash('success', "Bienvenue !");
                             
-                            return $this->redirectToRoute("Forumsubjet", "index");
+                            return $this->redirectToRoute("ForumSubjet", "index");
                         }
                         else  Session::addFlash('error', "Le mot de passe est erroné");
                     }

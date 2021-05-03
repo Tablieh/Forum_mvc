@@ -8,7 +8,7 @@
 
 
 
-    class ForumsubjetController extends AC
+    class ForumSubjetController extends AC
     {
         public function __construct(){
             $this->managerS = new ForumsubjetManager();
@@ -21,7 +21,7 @@
 
             //Si utilisateur est connecté, il y a accés au forum, sinon on affiche une page de connextion
             if(Session::get("user")){
-            return $this->render("Froumsubjet/subject.php", [
+            return $this->render("Froumsubjet/subjet.php", [
                 "sujets" => $sujets,
                 "title"    => "Liste des sujets"
             ]);

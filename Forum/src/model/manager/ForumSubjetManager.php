@@ -28,16 +28,7 @@ class ForumSubjetManager extends AM implements ManagerInterface
         );
     }
 
-    
-    public function getAllTopicsWithDetails(){
-        return $this->getResults(
-            "App\Model\Entity\SujetDetails",
-            "SELECT forumsubjet.id_forum AS sujet_id, max(messages.id_message) AS id_message, COUNT(messages.id_message) AS nombreDeMessages
-            FROM  forumsubjet, messages
-            WHERE forumsubjet.id_forum=messages.id_forum
-            GROUP BY forumsubjet.id_forum"
-        );
-    }
+
 
 
     

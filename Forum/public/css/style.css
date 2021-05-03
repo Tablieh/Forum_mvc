@@ -1,0 +1,8 @@
+.info{
+    display: flex;
+    flex-direction: column;
+text-align: center;
+}
+.titre{
+    text-align: center;
+}

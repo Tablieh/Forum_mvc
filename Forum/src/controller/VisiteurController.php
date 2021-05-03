@@ -19,7 +19,6 @@ use App\Model\Manager\VisiteurManager;
             "title"    => "Liste des Visiteur"
         ]);
     }
-
     public function voirVisiteur($id)
     {
         if($id){

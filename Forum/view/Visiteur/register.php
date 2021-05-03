@@ -1,25 +1,35 @@
-<h1>
+<h1 class="titre">
     Inscrivez-vous !!
 </h1>
-<form action="?ctrl=security&action=register" method="post">
-<p>
+<div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="?ctrl=security&action=login">Visiteur Login</a> <br></li>
+            <li>
+            <a href="?ctrl=security&action=register">Visiteur log up</a>
+            </li>
+        </ul>
+
+    </div>
+<form class="info" action="?ctrl=security&action=register" method="post">
+    <p class="uk-margin">
         <label for="pesudo">Votre pesudo : </label><br>
-        <input type="pesudo" name="pesudo" id="pesudo" required>
+        <input class="uk-input uk-form-width-medium" type="pesudo" name="pesudo" id="pesudo" required>
     </p>
-    <p>
+    <p class="uk-margin">
         <label for="email">Votre email : </label><br>
-        <input type="email" name="email" id="email" required>
+        <input class="uk-input uk-form-width-medium" type="email" name="email" id="email" required>
     </p>
-    <p>
+    <p class="uk-margin">
         <label for="MoteDePass">Votre mot de passe : </label><br>
-        <input type="password" name="MoteDePass" id="MoteDePass" required>
+        <input class="uk-input uk-form-width-medium" type="password" name="MoteDePass" id="MoteDePass" required>
     </p>
-    <p>
+    <p class="uk-margin">
         <label for="MoteDePass">Ressaisir votre mot de passe : </label><br>
-        <input type="password" name="password_repeat" id="passr" required>
+        <input class="uk-input uk-form-width-medium" type="password" name="password_repeat" id="passr" required>
     </p>
-    <p>
+    <p class="uk-margin">
         <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
-        <input type="submit" name="submit" value="S'INSCRIRE">
+        <input class="uk-input uk-form-width-medium" type="submit" name="submit" value="S'INSCRIRE">
     </p>
 </form>

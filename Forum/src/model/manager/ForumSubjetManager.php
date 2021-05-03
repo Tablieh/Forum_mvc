@@ -31,7 +31,7 @@ class ForumsubjetManager extends AM implements ManagerInterface
     public function getMessagesByTopic($id){
         return $this->getResults(
             "App\Model\Entity\Messages",
-            "SELECT * FROM messages WHERE id_forum = :id 
+            "SELECT * FROM messages WHERE forumsubjet_id = :id 
              ORDER BY messages.DateDeCree DESC",
             [
                 "id" => $id 
@@ -42,9 +42,9 @@ class ForumsubjetManager extends AM implements ManagerInterface
     public function getAnswersByTopic($id){
         return $this->getResults(
             "App\Model\Entity\Messages",
-            "SELECT * FROM messages WHERE id_forum = :id
+            "SELECT * FROM messages WHERE forumsubjet_id = :id
             HAVING  messages.id_message != 
-	            (SELECT min(messages.id_message) FROM messages WHERE id_forum = :id) 
+	            (SELECT min(messages.id_message) FROM messages WHERE forumsubjet_id = :id) 
             ORDER BY messages.DateDeCree DESC",
             [
                 "id" => $id 
@@ -55,7 +55,7 @@ class ForumsubjetManager extends AM implements ManagerInterface
     public function getFirstMessageByTopic($id){
         return $this->getOneOrNullResult(
             "App\Model\Entity\Messages",
-            "SELECT * FROM messages WHERE id_forum = :id
+            "SELECT * FROM messages WHERE forumsubjet_id = :id
              ORDER BY messages.DateDeCree
              LIMIT 1", 
             [

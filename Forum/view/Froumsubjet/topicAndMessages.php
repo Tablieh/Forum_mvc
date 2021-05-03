@@ -36,7 +36,7 @@
             <tr>
                 <td><?=  $message->getTexte() ?></td>
                 <td><?=  $message->getDateDeCree('d/m/Y H:i:s') ?> </td>
-                <td><?=  $message->getUtilisateur() ?> </td>
+                <td><?=  $message->getVisiteur() ?> </td>
                 <!-- https://getuikit.com/docs/icon -->
                 <td>
                     <a class="uk-icon-link uk-margin-small-right" uk-icon="file-edit" href="?ctrl=admin&action=upDatemessage&id=<?=  $message->getId() ?>"></a>

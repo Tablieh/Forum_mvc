@@ -34,7 +34,7 @@
         {
             if($id){
                 
-                $sujets = $this->managerS->getOneById($id);
+                $sujets = $this->managers->getOneById($id);
 
                 return $this->render("Froumsubjet/subjet.php", [
                     "sujets" => $sujets,

@@ -11,19 +11,23 @@
     foreach($sujets as $sujet){
     ?>
         <article class="uk-card uk-card-default uk-card-body">
+        <p>
             <h5 class="uk-card-title">
-                <a href="?ctrl=Forumsubjet&action=voirsujets&id=<?= $sujets->getId() ?>">
-                   
+                <a href="?ctrl=Forumsubjet&action=showTopic&id=<?= $sujet->getId() ?>"><?= $sujet->getTitre() ?> 
                 </a>
             </h5>
-            <p> <?= $sujets->getTitre() ?></p>
-            <p><?= $sujets->getDateDeCree() ?></p>
-           
+            <?= $sujet->getTitre() ?> 
+            <?= $sujet->getDateDeCree() ?>
+        </p>
+        
             
 
         </article>
+        
     <?php
     }
 ?>
+<a href="?ctrl=Forumsubjet&action=addTopic">Add a subject
+                </a>
 </main>
    

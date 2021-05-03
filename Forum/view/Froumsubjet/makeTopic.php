@@ -12,8 +12,8 @@
         <input  class="uk-input uk-form-width-large"type="texte" name="titre" id="titre" required>
     </p>
     <p>
-        <label for="message">Text de essage : </label><br>
-        <textarea class="uk-textarea uk-form-width-large" id="message" name="contenue"></textarea>
+        <label for="message">Text de message : </label><br>
+        <textarea class="uk-textarea uk-form-width-large" id="message" name="texte"></textarea>
     </p>
     <p>
         <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">

@@ -137,11 +137,6 @@ namespace App\Model\Entity;
                 return $this;
         }
 
-        public function __toString()
-        {
-            return $this->pseudo;
-        }
-
         public function hasRole($role){
             return $this->role == $role ? true : false;
         }
@@ -165,4 +160,9 @@ namespace App\Model\Entity;
 
                 return $this;
         }
+        public function __toString()
+        {
+            return $this->getPesudo()." ".$this->getDateDeVisite('d/m/Y H:i:s');
+        }
+
     }

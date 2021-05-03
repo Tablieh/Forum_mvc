@@ -4,6 +4,7 @@
     $sujet = $data['sujet'];
     $messages = $data['messages'];
     $premierMessage = $data['premierMessage'];
+    var_dump($messages);
 
 ?>
 <article class="uk-card uk-card-default uk-card-body">
@@ -11,7 +12,7 @@
     <p>
         <p><?=  $premierMessage->getTexte() ?></p>
         <p>
-            Créer par <strong><?=  $premierMessage->getUtilisateur() ?>, </strong> <?=  $premierMessage->getDateDeCree('d/m/Y H:i:s') ?>
+            Créer par <strong><?=  $premierMessage->getVisiteur()?>, </strong> Date de Ajout <?=  $premierMessage->getDateDeCree('d/m/Y H:i:s') ?>
         </p>
     </p>
     <div>
@@ -36,7 +37,7 @@
             <tr>
                 <td><?=  $message->getTexte() ?></td>
                 <td><?=  $message->getDateDeCree('d/m/Y H:i:s') ?> </td>
-                <td><?=  $message->getVisiteur() ?> </td>
+                <td><?=  $message ?> </td>
                 <!-- https://getuikit.com/docs/icon -->
                 <td>
                     <a class="uk-icon-link uk-margin-small-right" uk-icon="file-edit" href="?ctrl=admin&action=upDatemessage&id=<?=  $message->getId() ?>"></a>

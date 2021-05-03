@@ -80,7 +80,7 @@
 
         public function newTopic()
         {
-            return $this->render("Froumsubjet/createTopic.php");
+            return $this->render("Froumsubjet/makeTopic.php");
         }
 
         

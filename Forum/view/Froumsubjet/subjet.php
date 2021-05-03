@@ -27,7 +27,7 @@
     <?php
     }
 ?>
-<a href="?ctrl=Forumsubjet&action=addTopic">Add a subject
+<a href="?ctrl=Forumsubjet&action=newTopic">Add a subject
                 </a>
 </main>
    

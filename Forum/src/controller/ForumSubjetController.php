@@ -30,6 +30,21 @@
                 "title"    => "Connextion"
             ]);
         }
+        public function voirsujets($id)
+        {
+            if($id){
+                
+                $sujets = $this->managerS->getOneById($id);
+
+                return $this->render("Froumsubjet/subjet.php", [
+                    "sujets" => $sujets,
+                    "title"   => $sujets->getName()
+                ]);
+            }  
+            else return $this->render("Visiteur/login.php", [
+                "title"    => "Connextion"
+            ]);
+        }
 
 
         public function showTopic($id)

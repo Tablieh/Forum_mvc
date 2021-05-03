@@ -78,25 +78,6 @@
                 return $this;
         }
 
-        /**
-         * Get the value of utilisateur
-         */ 
-        public function getUtilisateur()
-        {
-                return $this->utilisateur;
-        }
-
-        /**
-         * Set the value of utilisateur
-         *
-         * @return  self
-         */ 
-        public function setUtilisateur($utilisateur)
-        {
-                $this->utilisateur = $utilisateur;
-
-                return $this;
-        }
         public function __toString(){
                 return $this->titre;
         }

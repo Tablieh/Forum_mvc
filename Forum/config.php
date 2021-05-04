@@ -8,6 +8,8 @@
     define("DB_USER", "root");
     //mot de passe de l'utilisateur du serveur de base de données
     define("DB_PASS", "");
+    //controller par default
+    define("DEFAULT_CTRL", "home");
 
 //CHEMINS GLOBAUX//
     //chemin des fichiers CSS

@@ -1,16 +1,7 @@
 <h1 class="titre">
     Inscrivez-vous !!
 </h1>
-<div class="uk-navbar-left">
 
-        <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="?ctrl=security&action=login">Visiteur Login</a> <br></li>
-            <li>
-            <a href="?ctrl=security&action=register">Visiteur log up</a>
-            </li>
-        </ul>
-
-    </div>
 <form class="info" action="?ctrl=security&action=register" method="post">
     <p class="uk-margin">
         <label for="pesudo">Votre pesudo : </label><br>

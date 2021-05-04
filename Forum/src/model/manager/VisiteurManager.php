@@ -27,7 +27,7 @@ class VisiteurManager extends AM implements ManagerInterface
         }
         public function insertVisiteur($pesudo,$mail, $pass){
             return $this->executeQuery(
-                "INSERT INTO visiteur (pesudo,email, MoteDePass, role) VALUES (:pesudo,:mail, :pass, 'ROLE_USER')",
+                "INSERT INTO visiteur (pesudo,email, MoteDePass) VALUES (:pesudo,:mail, :pass)",
                 [
                     "pesudo"=>$pesudo,
                     "mail" => $mail,
@@ -37,12 +37,12 @@ class VisiteurManager extends AM implements ManagerInterface
             );
         }
     
-        function getVisiteurByEmail($mail){
+        function getVisiteurByEmail($pesudoOrEmail){
             return $this->getOneOrNullResult(
                 "App\Model\Entity\Visiteur",
-                "SELECT * FROM visiteur WHERE email = :mail",
+                "SELECT * FROM visiteur WHERE email = :uore OR pesudo = :uore",
                 [
-                    "mail" => $mail
+                    "uore" => $pesudoOrEmail
                 ]
             );
         }

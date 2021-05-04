@@ -18,17 +18,17 @@ class SecurityController extends AbstractController
             if(isset($_POST["submit"])){
                 sleep(1);
                 
-                $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+                $pesudoOrEmail = trim(filter_input(INPUT_POST, "pesudo-or-email", FILTER_SANITIZE_STRING));
                 $MoteDePass = filter_input(INPUT_POST, "MoteDePass", FILTER_VALIDATE_REGEXP, [
                     "options" => [
                         "regexp" => "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/"
                         //au moins 6 caractères, MAJ, min et chiffre obligatoires
                     ]
                 ]);
-
-                if( $email && $MoteDePass ){
-                    if($Visiteur = $this->manager->getVisiteurByEmail($email)){//on récupère l'Visiteur si l'email saisi correspond en BDD
-                        if(password_verify($MoteDePass, $this->manager->getPasswordByEmail($email))){
+                        
+                if( $pesudoOrEmail && $MoteDePass ){
+                    if($Visiteur = $this->manager->getVisiteurByEmail($pesudoOrEmail)){//on récupère l'Visiteur si l'email saisi correspond en BDD
+                        if(password_verify($MoteDePass, $this->manager->getPasswordByEmail($Visiteur->getEmail()))){
                             Session::setVisiteur($Visiteur);
                             Session::addFlash('success', "Bienvenue !");
                             

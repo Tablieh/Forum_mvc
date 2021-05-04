@@ -4,7 +4,8 @@ namespace App\Controller;
 use App\Core\AbstractController;
 use App\Model\Manager\VisiteurManager;
 
-    class VisiteurController extends AbstractController
+
+class VisiteurController extends AbstractController
     {   
         public function __construct(){
         $this->manager = new VisiteurManager();

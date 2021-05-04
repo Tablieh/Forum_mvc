@@ -1,9 +1,9 @@
 <?php  
 namespace App\Model\Entity;
    use App\Core\AbstractEntity;
+use App\Core\EntityInterface;
 
-
-    class Visiteur extends AbstractEntity
+class Visiteur extends AbstractEntity implements EntityInterface
     {
         private $id;
         private $pesudo;
@@ -11,7 +11,7 @@ namespace App\Model\Entity;
         private $MoteDePass;
         private $DateDeVisite;
         private $role;
-        private $TBan;
+        private $end_ban;
 
         public function __construct($data){
             parent::hydrate($data, $this);
@@ -81,9 +81,9 @@ namespace App\Model\Entity;
         /**
          * Get the value of DateDeVisite
          */ 
-        public function getDateDeVisite()
+        public function getDateDeVisite($format="d/m/Y H:i:s")
         {
-            return $this->DateDeVisite->format("d-m-Y");
+            return $this->DateDeVisite->format($format);
         }
 
         /**
@@ -117,25 +117,6 @@ namespace App\Model\Entity;
 
                 return $this;
         }
-        /**
-         * Get the value of TBan
-         */ 
-        public function getTBan($format)
-        {
-                return $this->TBan->format($format);
-        }
-
-        /**
-         * Set the value of TBan
-         *
-         * @return  self
-         */ 
-        public function setTBan($TBan)
-        {
-                $this->TBan = new \DateTime($TBan);
-
-                return $this;
-        }
 
         public function hasRole($role){
             return $this->role == $role ? true : false;
@@ -162,7 +143,27 @@ namespace App\Model\Entity;
         }
         public function __toString()
         {
-            return $this->getPesudo()." ".$this->getDateDeVisite('d/m/Y H:i:s');
+            return $this->getPesudo()." ".$this->getDateDeVisite();
         }
 
+
+        /**
+         * Get the value of end_ban
+         */ 
+        public function getEnd_ban($format="d/m/Y H:i:s")
+        {
+                return $this->end_ban->format($format);
+        }
+
+        /**
+         * Set the value of end_ban
+         *
+         * @return  self
+         */ 
+        public function setEnd_ban($end_ban)
+        {
+                $this->end_ban =new \DateTime($end_ban);
+
+                return $this;
+        }
     }

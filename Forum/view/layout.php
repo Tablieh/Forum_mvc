@@ -18,12 +18,18 @@
 
     <div>
     <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
 
-    
+        <ul class="uk-navbar-nav">
+            <li><a href="?ctrl=home">Acceuil</a></li>
+            <li class="uk-active"><a href="?ctrl=security&action=login">Visiteur Login</a> <br></li>
+            <li>
+            <a href="?ctrl=security&action=register">Visiteur Log up</a>
+            </li>
+        </ul>
 
-
-
-</nav>
+    </div>
+    </nav>
 
         <?= $page //ici s'intègrera la page que le contrôleur aura renvoyé !!?> 
     </div>

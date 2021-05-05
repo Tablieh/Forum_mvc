@@ -2,11 +2,12 @@
     use App\Core\Session;
 ?>
 
-<h1>
-    make a new subject
-</h1>
 
-<form  id="connexion" action="?ctrl=Forumsubjet&action=addTopic" method="post">
+
+<form  class="info" action="?ctrl=Forumsubjet&action=addTopic" method="post">
+    <h1><strong> make a new subject </strong>
+       
+    </h1>
     <p>
         <label for="titre">Titre de sujet : </label><br>
         <input  class="uk-input uk-form-width-large"type="texte" name="titre" id="titre" required>

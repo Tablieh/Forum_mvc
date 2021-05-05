@@ -5,8 +5,10 @@
   
     //var_dump($sujets);
 ?>
+
+<main class="info" class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
 <h1>sujets</h1>
-<main id="sujets-list" class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
+<a href="?ctrl=Forumsubjet&action=newTopic"><strong>Add a subject</strong> </a>
 <?php
     foreach($sujets as $sujet){
     ?>
@@ -27,7 +29,6 @@
     <?php
     }
 ?>
-<a href="?ctrl=Forumsubjet&action=newTopic">Add a subject
-                </a>
+
 </main>
    

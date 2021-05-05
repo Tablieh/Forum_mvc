@@ -7,8 +7,8 @@
     //var_dump($messages);
 
 ?>
-<article class="uk-card uk-card-default uk-card-body">
-    <h5 class="uk-card-title"><?=  $sujet ?></h5>
+<article class="info" class="uk-card uk-card-default uk-card-body">
+    <h1  class="msg" class="uk-card-title"><?=  $sujet ?></h1>
     <p>
         <p><strong><?=  $premierMessage->getTexte() ?></strong></p>
         <p>
@@ -23,10 +23,10 @@
         <?php
             foreach($messages as $message){
         ?>
-               
-            <article class="uk-card uk-card-default uk-card-body">
-                <h5 class="uk-card-title">Réponses :</h5>
-                    <p> <strong> <?=  $message->getTexte() ?></strong><br>
+               <h4 class="info" class="uk-card-title"><strong>Réponses :</strong> </h4>
+            <article class="info" class="uk-card uk-card-default uk-card-body">
+                
+                    <p > <strong> <?=  $message->getTexte() ?></strong><br>
                         cree par & Date d'ajout du message :
                         <strong><?=  $message ?></strong> </p>                      
             </article>
@@ -37,7 +37,7 @@
         ?>
     </tbody>
 </table>
-<form  id="add" action="?ctrl=Forumsubjet&action=addMessage&id=<?= $sujet->getId()?>" method="post">
+<form  class="info" action="?ctrl=Forumsubjet&action=addMessage&id=<?= $sujet->getId()?>" method="post">
 
 <p>
     <label for="message">Text de message : </label><br>

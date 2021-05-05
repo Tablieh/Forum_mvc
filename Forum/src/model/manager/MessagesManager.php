@@ -49,13 +49,4 @@ class MessagesManager extends AM implements ManagerInterface
         );
     }
 
-    public function deleteMessages($id){
-        return $this->executeQuery( 
-            "DELETE FROM messages WHERE id_forum = :id",
-            [
-                "id" => $id 
-            ]
-        );
-    }
-
 }

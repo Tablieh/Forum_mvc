@@ -37,29 +37,6 @@ use App\Model\Manager\MessagesManager;
         }  
         else $this->redirectToRoute("Messages", "index");
     }
-    public function addMessage(){
-        if(isset($_POST["submit"])){
-            
-            $visiteur_id =  Session::get("user")->getId();
-            $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_STRING);
-            
-            if($texte){
-            $id_message = $this->managerM->insertMessage($texte, $visiteur_id); 
-                if($id_message){
-                    Session::addFlash('success', "Le message est ajouté");
-                }
-                else{
-                    Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
-                }
-            }
-            else Session::addFlash('error', "Tous les champs doivent être remplis et respecter leur format...");
-        }
-        else Session::addFlash('error', "Petit malin, mais ça marche pas !! Nananèèèèreuh !");
-        
-        return $this->redirectToRoute("Froumsubjet");
-    }
-    public function newMessage()
-        {
-            return $this->render("Froumsubjet/makeMessage.php");
-        }
+   
+
 }

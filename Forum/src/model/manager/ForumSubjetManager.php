@@ -14,7 +14,8 @@ class ForumsubjetManager extends AM implements ManagerInterface
     public function getAll(){
         return $this->getResults(
             "App\Model\Entity\Forumsubjet",
-            "SELECT * FROM forumsubjet"
+            "SELECT * FROM forumsubjet
+            ORDER BY forumsubjet.DateDeCree DESC"
         );
     }
 

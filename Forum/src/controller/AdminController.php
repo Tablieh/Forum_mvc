@@ -17,12 +17,12 @@ class AdminController extends AC
     public function index(){
         $sujets = $this->managerS->getAll();
         $messages = $this->managerM->getAll();
-        $utilisateurs = $this->managerU->getAll();
+        $visiteur = $this->managerU->getAll();
 
         return $this->render("admin/admin.php", [
             "sujets" => $sujets,
             "messages" => $messages,
-            "utilisateurs" => $utilisateurs,
+            "visiteur" => $visiteur,
             "title"    => "Administration"
         ]);
     }

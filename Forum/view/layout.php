@@ -18,16 +18,27 @@
 
     <div>
     <nav class="uk-navbar-container" uk-navbar>
+
     <div class="uk-navbar-left">
-
-        <ul class="uk-navbar-nav">
+    <ul class="uk-navbar-nav">
             <li><a href="?ctrl=home">Acceuil</a></li>
-            <li class="uk-active"><a href="?ctrl=security&action=login">Visiteur Login</a> <br></li>
-            <li>
-            <a href="?ctrl=security&action=register">Visiteur Log up</a>
-            </li>
+            <?php if(Session::getVisiteur()){
+            ?>
+            <li><a href="?ctrl=security&action=logout">Visiteur LogOut</a><br></li>
+            <li><a href="?ctrl=security&action=profile">Mon profile</a><br></li>
+            <?php
+            }
+            else{
+                ?>
+                <li class="uk-active"><a href="?ctrl=security&action=login">Visiteur Login</a> <br></li>
+                <li><a href="?ctrl=security&action=register">Visiteur Log up</a><br></li>
+                <?php
+            }
+            ?>
+            
+                
+            
         </ul>
-
     </div>
     </nav>
 

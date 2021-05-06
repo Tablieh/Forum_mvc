@@ -2,7 +2,7 @@
     use App\Core\Session;
     
     $sujets = $data['sujets'];
-  
+
     //var_dump($sujets);
 ?>
 
@@ -21,6 +21,11 @@
             <?= $sujet->getTitre() ?> 
             <?= $sujet->getDateDeCree() ?>
         </p>
+        
+        <?php 
+        if(Session::get("user")->hasRole("ROLE_ADMIN")){ ?>
+            <a href="?ctrl=Forumsubjet&action=delTopic">Delete Topic</a>
+            <?php }?>
         </article>
         
     <?php

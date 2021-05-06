@@ -116,12 +116,12 @@
                     Session::addFlash('success', "Le sujet est suprimé");
                 }
                 else{
-                    Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
+                    Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur car le sujet suprime pas ");
                 }
             }
             else Session::addFlash('error', "Une erreur est survenue, contactez l'administrateur...");
             
-            return $this->redirectToRoute("FroumSubjet");
+            return $this->redirectToRoute("FroumSubjet","index");
         }
         public function addMessage($forumsubjet_id){
             if(isset($_POST["submit"])){

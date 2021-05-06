@@ -95,7 +95,7 @@ class ForumsubjetManager extends AM implements ManagerInterface
 
     public function deleteTopic($id){
         return $this->executeQuery( 
-            "DELETE FROM forumsubjet WHERE id = :id",
+            "DELETE FROM forumsubjet WHERE forumsubjet_id = :id",
             [
                 "id" => $id 
             ]

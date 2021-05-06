@@ -86,4 +86,7 @@
             }
             return null;
         }
+        public static function hasRole($role){
+            return isset($_SESSION["user"]) && $_SESSION["user"]->getRole() === $role;
+        }
     }

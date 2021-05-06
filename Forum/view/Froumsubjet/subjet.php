@@ -6,6 +6,7 @@
     //var_dump($sujets);
 ?>
 
+    
 <main class="info" class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
 <h1 class="tac"><strong>Sujets</strong></h1>
 <a href="?ctrl=Forumsubjet&action=newTopic"><strong>Add a subject</strong> </a>
@@ -18,8 +19,8 @@
                 <a href="?ctrl=Forumsubjet&action=showTopic&id=<?= $sujet->getId() ?>"><?= $sujet->getTitre() ?> 
                 </a>
             </h5>
-            <?= $sujet->getTitre() ?> 
-            <?= $sujet->getDateDeCree() ?>
+            Supject Name : <?= $sujet->getTitre() ?> <br>
+           Made In : <?= $sujet->getDateDeCree() ?>
         </p>
         
         <?php 
@@ -31,6 +32,6 @@
     <?php
     }
 ?>
-
 </main>
+
    

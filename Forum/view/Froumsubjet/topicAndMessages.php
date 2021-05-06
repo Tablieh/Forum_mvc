@@ -7,13 +7,16 @@
     //var_dump($messages);
 
 ?>
+<body>
+    
+
 <article class="info" class="uk-card uk-card-default uk-card-body">
     <h1  class="msg" class="uk-card-title"><?=  $sujet ?></h1>
     <p>
-        <p><strong><?=  $premierMessage->getTexte() ?></strong></p>
-        <p>
-            Créer par <strong><?=  $premierMessage->getVisiteur()?>, </strong> Date de Ajout <?=  $premierMessage->getDateDeCree('d/m/Y H:i:s') ?>
-        </p>
+    <li class="comment"><strong>Subject First Comment : <br><?=  $premierMessage->getTexte() ?></strong></li>
+        <li>
+            Crée par <strong><?=  $premierMessage->getVisiteur()?>, </strong><br>  et Date de Ajout : <?=  $premierMessage->getDateDeCree('d/m/Y H:i:s') ?>
+        </li>
     </p>
     
     </article>
@@ -26,9 +29,10 @@
                <h4 class="info" class="uk-card-title"><strong>Réponses :</strong> </h4>
             <article class="info" class="uk-card uk-card-default uk-card-body">
                 
-                    <p > <strong> <?=  $message->getTexte() ?></strong><br>
-                        cree par & Date d'ajout du message :
-                        <strong><?=  $message ?></strong> </p>                      
+                    <li class="comment"> <strong> <?=  $message->getTexte() ?></strong></li> <br>
+                    <li>Crée par :
+                        <strong><?=  $message ?></strong></li>
+                                             
             </article>
                 <!-- https://getuikit.com/docs/icon -->
                 
@@ -48,3 +52,4 @@
     <input class="uk-button uk-button-secondary" type="submit" name="submit" value="Creer le message">
 </p>
 </form>
+</body>

@@ -143,7 +143,7 @@ class Visiteur extends AbstractEntity implements EntityInterface
         }
         public function __toString()
         {
-            return $this->getPesudo()." ".$this->getDateDeVisite();
+            return $this->getPesudo().", et Date de crée de la compte en ".$this->getDateDeVisite();
         }
 
 

@@ -1,7 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+html{
+
+    background-image: url(https://www.mmppicture.co.in/wp-content/uploads/2020/08/CB-Background-82-857x1080.jpg);
+background-size: cover;
+background-attachment: fixed;
+
+}
+body{
+    background-size: cover;
+background-attachment: fixed;
+background: linear-gradient(90deg, rgba(229, 203, 241, 0.5) 0%,
+rgba(224, 223, 222, 0.5) 50%,
+rgba(255, 238, 0, 0.5) 61%,
+rgba(252, 213, 154, 0.5) 83%,
+    rgba(255, 238, 0, 0.5) 100%);
+}
+.uk-card-default{
+    color :rgba(0, 0, 0, 0.514);
+    background-image: url(https://www.mmppicture.co.in/wp-content/uploads/2020/08/CB-Background-82-857x1080.jpg);
+    background-size: cover;
+background-attachment: fixed;
+}
+.uk-link, a{
+    color: rgb(69, 10, 83);;
+}
 .info{
     display: flex;
     flex-direction: column;
 text-align: center;
+
 }
 .titre{
     text-align: center;
@@ -10,5 +39,34 @@ text-align: center;
 color: indigo;
 }
 .tac{
-    color: indigo;
+    font-size: 70px;
+    color: rgb(65, 61, 68);
+}
+.uk-navbar-left{
+    background-size: cover;
+background-attachment: fixed;
+background: linear-gradient(90deg, rgba(229, 203, 241, 0.5) 0%,
+rgba(224, 223, 222, 0.5) 50%,
+rgba(255, 238, 0, 0.5) 61%,
+rgba(252, 213, 154, 0.5) 83%,
+    rgba(255, 238, 0, 0.5) 100%);
+}
+body{
+    background-size: cover;
+    background-attachment: fixed;
+    background: linear-gradient(90deg, rgba(229, 203, 241, 0.5) 0%,
+    rgba(224, 223, 222, 0.5) 50%,
+    rgba(255, 238, 0, 0.5) 61%,
+    rgba(252, 213, 154, 0.5) 83%,
+        rgba(255, 238, 0, 0.5) 100%); 
+}
+article>li{
+    
+    color :rgba(0, 0, 0, 0.514);
+}
+.comment{
+    color:rgba(85, 12, 128, 0.76);
+}
+h4{
+    color:rgba(148, 111, 8, 0.76);
 }

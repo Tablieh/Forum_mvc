@@ -79,7 +79,7 @@
         }
         public function __toString()
         {
-            return $this->getVisiteur()." ".$this->getDateDeCree('d/m/Y H:i:s');
+            return $this->getVisiteur()." et Date de Ajout : ".$this->getDateDeCree('d/m/Y H:i:s');
         }
 
         /**

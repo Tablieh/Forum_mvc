@@ -19,7 +19,7 @@
             </h3>
             
         </p>
-        <li><a href="?ctrl=security&action=ubdate&id=<?= $user->getId() ?>">Ubdate Date</a><br></li>
+        <li><a href="?ctrl=security&action=update&id=<?= $user->getId() ?>">Ubdate Date</a><br></li>
         </article>
         
     <?php

@@ -9,7 +9,7 @@
         private $id;
         private $titre;
         private $DateDeCree;
-        private $statut;
+        private $locked;
         private $visiteur;
 
         public function __construct($data){
@@ -58,29 +58,7 @@
                 return $this;
         }
 
-        /**
-         * Get the value of statut
-         */ 
-        public function getStatut()
-        {
-                return $this->statut;
-        }
 
-        /**
-         * Set the value of statut
-         *
-         * @return  self
-         */ 
-        public function setStatut($statut)
-        {
-                $this->statut = $statut;
-
-                return $this;
-        }
-
-        public function __toString(){
-                return $this->titre;
-        }
 
         /**
          * Get the value of id
@@ -120,5 +98,29 @@
                 $this->visiteur = $visiteur;
 
                 return $this;
+        }
+
+        /**
+         * Get the value of lock
+         */ 
+        public function getLocked()
+        {
+                return $this->locked;
+        }
+
+        /**
+         * Set the value of lock
+         *
+         * @return  self
+         */ 
+        public function setLocked($locked)
+        {
+                $this->locked = $locked;
+
+                return $this;
+        }
+        
+        public function __toString(){
+                return $this->titre;
         }
     }

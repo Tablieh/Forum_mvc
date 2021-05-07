@@ -101,5 +101,13 @@ class ForumsubjetManager extends AM implements ManagerInterface
             ]
         );
     }
-    
+    public function updatelock($bool,$id){
+        return $this->executeQuery( 
+            "UPDATE forumsubjet SET ( locked = :bool ) WHERE id = :num",
+            [
+                ":bool" => $bool ? 1 : 0,
+                ":num"=> $id 
+            ]
+        );
+    }
 }

@@ -92,11 +92,15 @@ class SecurityController extends AbstractController
         
         public function profile(){
             
-        if( Session::getVisiteur()){
-            return $this->render("Visiteur/profile.php");
-        }
-        
+            if(Session::getVisiteur()){
+
+                return $this->render("Visiteur/profile.php",[
+                    "Visiteur"=> Session::getVisiteur(),
+                    "title"=> "List de Visiteur"
+                ]);
+            }
             Session::addFlash('error', 'Access denied !');
+
             // return $this->redirectToRoute("home");
             return $this->render("Visiteur/profile.php");
         }
@@ -106,7 +110,7 @@ class SecurityController extends AbstractController
                 "title"=> "Membres du forum"
             ]);
         }
-        public function ubdate($id){
+        public function update($id){
             return $this->render("Froumsubjet/membrs.php",[
                 "users"=> $this->manager->ubdateDate($id),
                 "title"=> "Membres du forum"

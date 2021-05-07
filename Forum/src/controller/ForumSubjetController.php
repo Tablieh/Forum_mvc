@@ -65,18 +65,6 @@
             else $this->redirectToRoute("Froumsubjet");
         }
 
-        
-        public function lockUnlockTopict($id)
-        {
-            if($id){
-                if(Session::get("user") && Session::get("user")->hasRole("ROLE_ADMIN")){ 
-                    $this->managerS->changeStatus($id);  
-                }  
-            }
-
-            return $this->redirectToRoute("Froumsubjet");
-        }
-
 
         public function newTopic()
         {
@@ -144,5 +132,12 @@
             else Session::addFlash('error', "Petit malin, mais ça marche pas !! Nananèèèèreuh !");
             
             return $this->redirectToRoute("Froumsubjet","showTopic");
+        }
+        public function lock($topic_id)
+        {
+            $lockAction = !$_GET["actualLock"];
+            $this->managerS->updateLock($lockAction,$topic_id);
+
+            return $this->redirectToRoute("Froumsubjet");
         }
     }

@@ -21,6 +21,14 @@
             </h5>
             Supject Name : <?= $sujet->getTitre() ?> <br>
            Made In : <?= $sujet->getDateDeCree() ?>
+
+           <td><?= $sujet->getLocked() ? "verrouillé" :"ouvert" ?></td>
+
+            <td><a href="?ctrl=Forumsubjet&action=lock&id=<?= $sujet->getId() ?>&actualLock=<?= $sujet->getLocked() ?>" ></a>
+
+                <i class="fas <?= $sujet->getLocked() ? 'fa-lock' :'fa-lock-open' ?>"> </i>
+
+            </td>
         </p>
         
         <?php 

@@ -55,14 +55,15 @@ class VisiteurManager extends AM implements ManagerInterface
                 ]
             );
         }
-        public function ubdateDate($id){
-            $dateBan = new \DateTime();
+        public function updateDate($id){
+            $newDateBan = new \DateTime();
+            $newDateBan = new \DateInterval("P30DT0H");
             $this->executeQuery( 
                 "UPDATE visiteur
                 SET visiteur.end_ban = :end_ban
                 WHERE id = :id",
                 [
-                    "end_ban" => $dateBan,
+                    "end_ban" => $newDateBan,
                     "id" => $id
                 ]
             );

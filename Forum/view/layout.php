@@ -26,6 +26,7 @@
             ?>
             <li><a href="?ctrl=security&action=logout">Visiteur LogOut</a><br></li>
             <li><a href="?ctrl=security&action=profile">Mon profile</a><br></li>
+            <li><a href="?ctrl=security&action=members">List Membre</a><br></li>
             <?php
             }
             else{

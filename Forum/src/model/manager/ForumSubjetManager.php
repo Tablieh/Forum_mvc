@@ -101,4 +101,5 @@ class ForumsubjetManager extends AM implements ManagerInterface
             ]
         );
     }
+    
 }

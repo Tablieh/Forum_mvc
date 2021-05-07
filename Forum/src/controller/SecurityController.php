@@ -100,4 +100,16 @@ class SecurityController extends AbstractController
             // return $this->redirectToRoute("home");
             return $this->render("Visiteur/profile.php");
         }
+        public function members(){
+            return $this->render("Froumsubjet/membrs.php",[
+                "users"=> $this->manager->getList(),
+                "title"=> "Membres du forum"
+            ]);
+        }
+        public function ubdate($id){
+            return $this->render("Froumsubjet/membrs.php",[
+                "users"=> $this->manager->ubdateDate($id),
+                "title"=> "Membres du forum"
+            ]);
+        }
     }

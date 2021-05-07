@@ -10,7 +10,8 @@
     define("DB_PASS", "");
     //controller par default
     define("DEFAULT_CTRL", "home");
-
+    //PER_PAGE
+    define("PER_PAGE", 2);
 //CHEMINS GLOBAUX//
     //chemin des fichiers CSS
     define("CSS_PATH", "./public/css");

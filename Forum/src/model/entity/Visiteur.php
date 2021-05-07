@@ -12,6 +12,8 @@ class Visiteur extends AbstractEntity implements EntityInterface
         private $DateDeVisite;
         private $role;
         private $end_ban;
+        private $nbtopics;
+        private $nbposts;
 
         public function __construct($data){
             parent::hydrate($data, $this);
@@ -163,6 +165,46 @@ class Visiteur extends AbstractEntity implements EntityInterface
         public function setEnd_ban($end_ban)
         {
                 $this->end_ban =new \DateTime($end_ban);
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nbtopics
+         */ 
+        public function getNbtopics()
+        {
+                return $this->nbtopics;
+        }
+
+        /**
+         * Set the value of nbtopics
+         *
+         * @return  self
+         */ 
+        public function setNbtopics($nbtopics)
+        {
+                $this->nbtopics = $nbtopics;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nbposts
+         */ 
+        public function getNbposts()
+        {
+                return $this->nbposts;
+        }
+
+        /**
+         * Set the value of nbposts
+         *
+         * @return  self
+         */ 
+        public function setNbposts($nbposts)
+        {
+                $this->nbposts = $nbposts;
 
                 return $this;
         }

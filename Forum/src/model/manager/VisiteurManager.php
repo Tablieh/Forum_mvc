@@ -55,5 +55,28 @@ class VisiteurManager extends AM implements ManagerInterface
                 ]
             );
         }
-
+        public function ubdateDate($id){
+            $dateBan = new \DateTime();
+            $this->executeQuery( 
+                "UPDATE visiteur
+                SET visiteur.end_ban = :end_ban
+                WHERE id = :id",
+                [
+                    "end_ban" => $dateBan,
+                    "id" => $id
+                ]
+            );
+        }
+        public function getList(){
+            return $this->getResults(
+                "App\Model\Entity\Visiteur",
+                "SELECT * FROM visiteur_list ORDER BY DateDeVisite DESC"
+            );
+        }
+        public function countUsers(){
+            return $this->getResults(
+                "App\Model\Entity\Visiteur",
+                "SELECT COUNT(*) AS v FROM visiteur_list ORDER BY DateDeVisite DESC"
+            );
+        }
     }

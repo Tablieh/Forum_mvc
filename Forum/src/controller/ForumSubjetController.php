@@ -112,7 +112,7 @@
         public function delTopic($id){
             if($id){
 
-                if($this->managerM->deleteMessages($id) && $this->managerS->deleteTopic($id)){
+                if($this->managerS->deleteTopic($id)){
                     Session::addFlash('success', "Le sujet est suprimé");
                 }
                 else{

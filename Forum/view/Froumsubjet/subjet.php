@@ -24,7 +24,7 @@
         </p>
         
         <?php 
-        if(Session::get("user")->hasRole("ROLE_ADMIN")){ ?>
+        if(Session::get("user") && Session::get("user")->hasRole("ROLE_ADMIN")){ ?>
             <a href="?ctrl=Forumsubjet&action=delTopic&id=<?= $sujet->getId() ?>"> Delete Topic </a>
             <?php }?>
         </article>

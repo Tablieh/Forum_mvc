@@ -40,7 +40,7 @@ class MessagesManager extends AM implements ManagerInterface
     }
 
     
-    public function deleteMessage($id){
+    public function deleteMessages($id){
         return $this->executeQuery( 
             "DELETE FROM messages WHERE id_message = :id",
             [

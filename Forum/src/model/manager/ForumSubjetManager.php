@@ -82,7 +82,7 @@ class ForumsubjetManager extends AM implements ManagerInterface
 
     public function insertTopic($titre, $visiteur_id){
         $this->executeQuery( 
-            "INSERT INTO forumsubjet (titre, statut, visiteur_id) VALUES (:titre, 1, :visiteur_id)",
+            "INSERT INTO forumsubjet (titre, locked, visiteur_id) VALUES (:titre, 1, :visiteur_id)",
             [
                 "titre"  => $titre,
                 "visiteur_id" => $visiteur_id

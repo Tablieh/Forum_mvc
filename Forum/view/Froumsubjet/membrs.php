@@ -19,7 +19,7 @@
             </h3>
             
         </p>
-        <li><a href="?ctrl=security&action=update&id=<?= $user->getId() ?>">Update Date</a><br></li>
+        <li><a href="?ctrl=security&action=update&id=<?= $user->getId() ?>"> <i class="fas fa-user-slash"></i> Ban 30 days by admin </a><br></li>
         </article>
         
     <?php

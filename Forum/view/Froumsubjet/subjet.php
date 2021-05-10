@@ -37,7 +37,7 @@
         
         <?php 
         if(Session::get("user") && Session::get("user")->hasRole("ROLE_ADMIN")){ ?>
-            <a href="?ctrl=Forumsubjet&action=delTopic&id=<?= $sujet->getId() ?>"> Delete Topic </a>
+            <a href="?ctrl=Forumsubjet&action=delTopic&id=<?= $sujet->getId() ?>">  <i class="fas fa-trash"> Delete Topic</i> </a>
             <?php }?>
         </article>
         

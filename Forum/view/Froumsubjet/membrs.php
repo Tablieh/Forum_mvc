@@ -15,11 +15,15 @@
         <article class="uk-card uk-card-default uk-card-body">
         <p>
         <h3 class="uk-card-title">
-        <li>user : <?= $user ?></li> <br>
-            </h3>
-            
+            <li>user : <?= $user ?></li> <br>
+        </h3>
+         
         </p>
-        <li><a href="?ctrl=security&action=update&id=<?= $user->getId() ?>"> <i class="fas fa-user-slash"></i> Ban 30 days by admin </a><br></li>
+
+        <?php 
+        if(Session::get("user") && Session::get("user")->hasRole("ROLE_ADMIN")){ ?>
+            <li><a href="?ctrl=security&action=update&id=<?= $user->getId() ?>"> <i class="fas fa-user-slash"></i> Ban 30 days </a><br></li>
+        <?php }?>
         </article>
         
     <?php

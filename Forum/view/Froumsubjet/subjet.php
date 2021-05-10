@@ -8,7 +8,7 @@
 
     
 <main class="info" class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
-<h1 class="tac"><strong>Sujets</strong></h1>
+<h1 class="tac"><strong>All Subject</strong></h1>
 <a href="?ctrl=Forumsubjet&action=newTopic"><strong>Add a subject</strong> </a>
 
 <?php

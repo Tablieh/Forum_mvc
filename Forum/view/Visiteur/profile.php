@@ -15,6 +15,8 @@
     $now->add($int);
     echo "<br>";
     echo $now->format("d/m/Y H:i:s");
+
+    
     */
 ?>
 <h1 class="info">PROFILE</h1>
@@ -23,6 +25,7 @@
         <p> mail : <?= $Visiteur->getEmail() ?> </p>
         <p> get date de visit : <?= $Visiteur->getDateDeVisite()?> </p>
         <p> Role: <?= $Visiteur->getRole()?> </p>
+       
     </div>    
         
         <?php

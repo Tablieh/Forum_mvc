@@ -137,7 +137,9 @@
         {
             $lockAction = !$_GET["actualLock"];
             $this->managerS->updateLock($lockAction,$topic_id);
+           
 
-            return $this->redirectToRoute("FroumSubjet","index");
+            echo json_encode([ 'res' => $lockAction]);
+            die();
         }
     }

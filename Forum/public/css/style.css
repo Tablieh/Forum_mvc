@@ -60,6 +60,9 @@ body{
     rgba(252, 213, 154, 0.5) 83%,
         rgba(255, 238, 0, 0.5) 100%); 
 }
+footer>p{
+    margin-bottom: 0px;
+}
 article>li{
     
     color :rgba(0, 0, 0, 0.514);

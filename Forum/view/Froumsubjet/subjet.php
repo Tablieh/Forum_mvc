@@ -28,7 +28,7 @@
 
             <td><?= $sujet->getLocked() ? "verrouillé" :"ouvert" ?></td>
 
-            <td><a href="?ctrl=Forumsubjet&action=lock&id=<?= $sujet->getId() ?>&actualLock=<?= $sujet->getLocked() ?>" >
+            <td><a data-lock="<?= $sujet->getLocked() ?>" class="locklink" href="?ctrl=Forumsubjet&action=lock&id=<?= $sujet->getId() ?>" >
 
                 <i class="fas <?= $sujet->getLocked() ? 'fa-lock' :'fa-lock-open' ?>"> </i></a>
 
@@ -45,5 +45,3 @@
     }
 ?>
 </main>
-
-   

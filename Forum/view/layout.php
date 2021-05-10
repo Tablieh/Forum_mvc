@@ -50,6 +50,38 @@
 
         <?= $page //ici s'intègrera la page que le contrôleur aura renvoyé !!?> 
     </div>
+    <footer>
+        <p class="info"> &copy;2021 - Tablieh Walid - Elan <a href="#">Politique du forum</a></p>
+    </footer>
+    <script>
+        let links = document.querySelectorAll(".locklink")
+
+        for(let link of links){
+            link.addEventListener("click", (event) => {
+                event.preventDefault()
+                let url = link.getAttribute("href")
+                let lock =link.dataset.lock
+                url = url + "&actualLock=" + lock
+                fetch(url)
+                    .then(response => response.json())
+                    .then(json =>{
+                        let res = json.res
+                        let icon = link.children[0]
+                        if(res == true){
+                            link.dataset.lock = 1
+                            icon.classList.remove("fa-lock-open")
+                            icon.classList.add("fa-lock")
+                        }
+                        else{
+                            link.dataset.lock = 0
+                            icon.classList.remove("fa-lock")
+                            icon.classList.add("fa-lock-open")
+                        }
+                    } )
+                    .catch(error => alert(error))
+            })
+        }
+    </script>
 </body>
 </html>
     

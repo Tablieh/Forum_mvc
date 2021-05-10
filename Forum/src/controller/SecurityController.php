@@ -111,9 +111,7 @@ class SecurityController extends AbstractController
             ]);
         }
         public function update($id){
-            return $this->render("Froumsubjet/membrs.php",[
-                "users"=> $this->manager->ubdateDate($id),
-                "title"=> "Membres du forum"
-            ]);
+            $this->manager->updateDate($id);
+            return $this->redirectToRoute("security", "members");
         }
     }
